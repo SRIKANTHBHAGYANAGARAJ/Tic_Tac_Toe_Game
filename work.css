@@ -1,0 +1,153 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body,
+html {
+    height: 100%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(to right, #e0f7fa, #fce4ec);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.main {
+    width: 100%;
+    max-width: 600px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 16px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    min-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Welcome and setup */
+.welcome-screen,
+.setup {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}
+
+.welcome-screen h1,
+.setup h2 {
+    margin-bottom: 10px;
+    color: #333;
+}
+
+input {
+    padding: 10px;
+    width: 80%;
+    max-width: 300px;
+    border-radius: 8px;
+    border: 1px solid #aaa;
+}
+
+button {
+    padding: 12px 20px;
+    background-color: #00796b;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+button:hover:not(.box) {
+    background-color: #004d40;
+}
+
+/* Game board */
+.container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    margin: 20px auto;
+    width: 100%;
+    max-width: 300px;
+}
+
+.box {
+    width: 100%;
+    height: 100px;
+    font-size: 2.5rem;
+    background-color: #f1f1f1;
+    border: 2px solid #333;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.box:disabled {
+    cursor: default;
+    background-color: #ccc;
+}
+
+.scoreboard,
+.winner {
+    margin: 10px 0;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+/* Confetti */
+@keyframes fly {
+    0% {
+        transform: translateY(0) rotate(0);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(-300px) rotate(720deg);
+        opacity: 0;
+    }
+}
+
+.confetti {
+    position: absolute;
+    font-size: 24px;
+    animation: fly 1s ease-out forwards;
+    pointer-events: none;
+}
+
+#confetti-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 1000;
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+    .main {
+        padding: 10px;
+        border-radius: 0;
+        min-height: 100vh;
+    }
+
+    input {
+        width: 90%;
+    }
+
+    .box {
+        font-size: 2rem;
+        height: 80px;
+    }
+
+    .scoreboard,
+    .winner {
+        font-size: 1rem;
+    }
+}
