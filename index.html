@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tic Tac Toe Game</title>
+    <link rel="stylesheet" href="work.css" />
+</head>
+
+<body>
+    <main class="main">
+        <!-- Welcome Screen -->
+        <div class="welcome-screen" id="welcome-screen">
+            <h1>Welcome to Tic Tac Toe!</h1>
+            <button onclick="showSetup()">Start</button>
+        </div>
+
+        <!-- Setup Screen -->
+        <div class="setup" id="setup-screen" style="display: none;">
+            <h2>Enter Player Details</h2>
+            <input type="text" id="player1" placeholder="Player 1 (O)" /><br><br>
+            <input type="text" id="player2" placeholder="Player 2 (X)" /><br><br>
+            <input type="number" id="rounds" placeholder="Rounds" min="1" /><br><br>
+            <button onclick="startGame()">Start Game</button>
+        </div>
+
+        <!-- Game Screen -->
+        <div id="game-screen" style="display: none;">
+            <h1>Tic Tac Toe</h1>
+            <h3 class="scoreboard"></h3>
+            <h3 class="turn-indicator"></h3> <!-- ADDED -->
+            <h3 class="winner"></h3>
+            <button class="reset" onclick="newGame()">New Game</button>
+            <div class="container">
+                <button class="box"></button>
+                <button class="box"></button>
+                <button class="box"></button>
+                <button class="box"></button>
+                <button class="box"></button>
+                <button class="box"></button>
+                <button class="box"></button>
+                <button class="box"></button>
+                <button class="box"></button>
+            </div>
+        </div>
+
+    <div id="confetti-container"></div>
+    <script src="work.js"></script>
+</body>
+
+</html>
